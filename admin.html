@@ -4,23 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animal Rescue Dashboard</title>
-  <!-- Stylesheet -->
-    <link rel="stylesheet" href="./src/output.css" />
-
-    <!-- Google Fonts: Inter-->
-   <link rel="preconnect" href="https://fonts.googleapis.com" />
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .sidebar {
       width: 250px;
       height: 100vh;
       position: fixed;
       top: 0;
-      left: -250px;
+      left: -250px; 
       background-color: #f8fafc;
       border-right: 1px solid #e2e8f0;
       overflow-y: auto;
@@ -66,12 +57,15 @@
         height: 100vh;
       }
     }
+    .home-green {
+      color: #10B981;
+    }
   </style>
 </head>
 <body class="bg-gray-50">
   <header class="md:hidden fixed top-0 left-0 right-0 bg-white shadow-md z-30 p-4">
     <div class="flex items-center justify-between">
-      <h1 class="text-xl font-bold text-home-green">Animal Rescue</h1>
+      <h1 class="text-xl font-bold home-green">Animal Rescue</h1>
       <button id="mobile-menu-btn" class="mobile-menu-btn p-2 rounded-md text-gray-600 hover:text-home-green focus:outline-none focus:ring-2 focus:ring-home-green">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -85,7 +79,7 @@
   <nav id="sidebar" class="sidebar bg-white shadow-lg">
     <div class="p-6">
       <div class="flex justify-between items-center mb-8">
-        <h1 class="text-2xl font-bold text-home-green">Animal Rescue</h1>
+        <h1 class="text-2xl font-bold home-green">Animal Rescue</h1>
         <button id="close-menu-btn" class="md:hidden p-2 rounded-md text-gray-600 hover:text-home-green focus:outline-none focus:ring-2 focus:ring-home-green">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -106,244 +100,247 @@
   <main class="main-content pt-16 md:pt-0">
     <section id="gallery" class="py-20 bg-white">
       <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-center home-green mb-12">
+          Rescued Animals
+        </h2>
         <div class="columns-1 sm:columns-2 md:columns-3 space-y-4">
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-01.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-01.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-02.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-02.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-03.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-03.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-04.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-04.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-05.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-05.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-06.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-06.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-07.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-07.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-08.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-08.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-09.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-09.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-10.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-10.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-11.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-11.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/dog-12.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/dog-12.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/cat-01.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/cat-01.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
-          <figure class="relative group break-inside-avoid overflow-hidden rounded-lg">
-            <img src="./assets/images/animals/cat-02.jfif" alt="Rescued animal" class="w-full h-64 object-cover transition-transform group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-3">
-              <div class="flex space-x-2 w-full justify-end">
-                <button class="bg-white/90 hover:bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-                  <span>Upload</span>
-                </button>
-                <button class="bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm transition-all duration-200 transform hover:scale-105 flex items-center space-x-1">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Delete</span>
-                </button>
-              </div>
+          </div>
+          <div class="relative break-inside-avoid">
+            <img src="./assets/images/animals/cat-02.jfif" alt="Rescued animal" class="w-full rounded-lg object-cover h-64" />
+            <div class="absolute bottom-3 right-3 flex space-x-2 opacity-95">
+              <button class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-gray-200 cursor-pointer hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                </svg>
+              </button>
+              <button class="bg-red-500/90 backdrop-blur-sm rounded-full p-2 shadow-lg text-white cursor-pointer hover:bg-red-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+              </button>
             </div>
-          </figure>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <script>
+
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const closeMenuBtn = document.getElementById('close-menu-btn');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
 
-    const openSidebar = () => {
+    function openSidebar() {
       sidebar.classList.add('open');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-    };
+    }
 
-    const closeSidebar = () => {
+    function closeSidebar() {
       sidebar.classList.remove('open');
       overlay.classList.remove('open');
       document.body.style.overflow = '';
-    };
+    }
 
-    mobileMenuBtn?.addEventListener('click', openSidebar);
-    closeMenuBtn?.addEventListener('click', closeSidebar);
-    overlay?.addEventListener('click', closeSidebar);
-
+    mobileMenuBtn.addEventListener('click', openSidebar);
+    closeMenuBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
 
     const navLinks = sidebar.querySelectorAll('a');
     navLinks.forEach(link => {
